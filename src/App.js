@@ -12,12 +12,10 @@ function App() {
   const [checkSlide, setCheckSlide] = useState(true);
   const [lagging, setLagging] = useState(false)
   let nameClass;
-  // ./weather/
   let styles = {
     backgroundImage: weatherApi ? notFoundError ? '' : `url(/weather/${weatherApi.weather[0].main}.jpg)` : ''
   }
   nameClass = checkSlide ? 'hidden lg:inline' : ''
-
   useEffect(() => {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=387f421853b5fa6b1316fd0aca340c28`)
       .then(res => res.json())
@@ -36,11 +34,9 @@ function App() {
           }, 3000);
           setWeatherApi(data);
         }
-
       })
 
       .catch(err => console.log(err))
-
   }, [searcher]);
   function search(event) {
     let value = event.target.value
@@ -87,7 +83,6 @@ function App() {
           </div> : ''}
         </aside>
       </div>
-
       {weatherApi ?lagging? <div className='lg:hidden justify-center flex container mx-auto'><ScaleLoader   color="	#F5F5F5" /></div>: notFoundError ? <p className='container mx-auto justify-center flex lg:hidden text-2xl'>invalid city</p> : 
         <section className='container mx-auto justify-center flex align-end lg:hidden text-center my-12 flex-row items-end gap-5' id="cityInfo">
           <h1 className='text-5xl'>{Math.round(weatherApi.main.temp - 273.15)}<sup>o</sup>C</h1>
@@ -110,5 +105,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
