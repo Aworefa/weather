@@ -14,7 +14,7 @@ function App() {
   let nameClass;
   // ./weather/
   let styles = {
-    backgroundImage: weatherApi ? notFoundError ? '' : `url(${weatherApi.weather[0].main}.jpg)` : ''
+    backgroundImage: weatherApi ? notFoundError ? '' : `url(./weather/${weatherApi.weather[0].main}.jpg)` : ''
   }
   nameClass = checkSlide ? 'hidden lg:inline' : ''
 
