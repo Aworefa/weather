@@ -1,5 +1,5 @@
 {
-  "homepage": "https://<Username>.github.io/<Repository-name>",
+  "homepage": "https://aworefa.github.io/weather",
   "name": "weatherapi",
   "version": "0.1.0",
   "private": true,
